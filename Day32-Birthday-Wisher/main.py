@@ -4,8 +4,8 @@ import datetime as df
 from random import choice
 import smtplib
 
-user="suhaibarifsiddiqui@gmail.com"
-password="mvtahypvktyufbez"
+user="me@gmail.com"
+password="password"
 
 file=choice(["letter_templates/letter_1.txt","letter_templates/letter_2.txt","letter_templates/letter_3.txt"])
 
