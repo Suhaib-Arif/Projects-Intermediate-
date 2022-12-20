@@ -2,8 +2,8 @@ from random import choice
 import datetime as dt
 import smtplib
 
-email="suhaibarifsiddiqui@gmail.com"
-password="ynoqpiybdmqurgdb"
+email="me@gmail.com"
+password="password"
 
 
 with open("quotes.txt") as quotes_file:
@@ -19,7 +19,7 @@ if time.weekday() == 0:
         connection.login(user=email,password=password)
         connection.sendmail(
             from_addr=email,
-            to_addrs="i18658312@gmail.com",
+            to_addrs="you@gmail.com",
             msg=f"Subject:MOTIVATION\n\n{random_quote}"
         )
 
