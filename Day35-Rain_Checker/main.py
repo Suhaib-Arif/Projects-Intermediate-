@@ -36,8 +36,8 @@ if will_rain:
 
     message=client.messages.create(
         body="Rain rain go away, come again another day",
-        from_='whatsapp:+14155238886',
-        to='whatsapp:+919731903548'
+        from_=os.environ.get("BOT_NUMBER"),
+        to=os.environ.get("USER_NUMBER")
     )
 
     print(message.status)
