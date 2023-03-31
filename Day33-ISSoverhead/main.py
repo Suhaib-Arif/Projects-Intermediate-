@@ -1,13 +1,13 @@
 import requests
 from datetime import datetime
 import smtplib
+import os
 
 
-
-MY_LAT = -44.0152 # Your latitude
-MY_LONG = 166.5922 # Your longitude
-USER_NAME="suhaibarifsiddiqui@gmail.com"
-PASSWORD="pugbixmewevqvtlk"
+MY_LAT = os.environ.get("Your_latitude")
+MY_LONG = os.environ.get("Your_longitude")
+USER_NAME= os.environ.get("GMAIL")
+PASSWORD= os.environ.get("PASSWORD")
 
 
 
@@ -26,12 +26,6 @@ data = response.json()
 
 iss_latitude = float(data["iss_position"]["latitude"])
 iss_longitude = float(data["iss_position"]["longitude"])
-
-# print(iss_latitude)
-# print(iss_longitude)
-
-#Your position is within +5 or -5 degrees of the ISS position.
-
 
 parameters = {
     "lat": MY_LAT,
@@ -55,11 +49,5 @@ if close_to_cur_pos(iss_latitude,iss_longitude) and time_now.hour > sunset:
         connection.login(user=USER_NAME,password=PASSWORD)
         connection.sendmail(from_addr=USER_NAME,to_addrs=USER_NAME,msg="SUBJECT:LOOK UP")
         print("mail sent")
-
-
-# and it is currently dark
-# Then send me an email to tell me to look up.
-# BONUS: run the code every 60 seconds.
-
 
 
